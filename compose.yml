@@ -5,6 +5,6 @@ services:
     container_name: djapp
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - ./djapp:/usr/src/djapp
+      - ./djapp:/usr/src/app
     ports:
       - 8000:8000

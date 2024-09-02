@@ -1,7 +1,7 @@
 FROM python:3.11-slim
 
 # зберігати в корновій папці не безпечно
-WORKDIR /usr/src/myapp
+WORKDIR /usr/src/app
 
 # щоб не було буферизації
 ENV PYTHONUNBUFFERED=1
