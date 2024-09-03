@@ -1,6 +1,6 @@
 services:
   web:
-    build: ./djapp
+    build: djapp
     image: djapp:1.0.0
     container_name: djapp
     command: python manage.py runserver 0.0.0.0:8000
@@ -10,7 +10,7 @@ services:
       - 8000:8000
 
   react:
-    build: ./rctapp
+    build: rctapp
     image: react-vite:1.0.0
     container_name: react-vite
     # Використання --host особливо важливе в контексті Docker, оскільки воно дозволяє серверу розробки Vite бути доступним
