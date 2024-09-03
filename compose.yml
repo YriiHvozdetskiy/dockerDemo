@@ -8,3 +8,21 @@ services:
       - ./djapp:/usr/src/app
     ports:
       - 8000:8000
+
+  react:
+    build: ./rctapp
+    image: react-vite:1.0.0
+    container_name: react-vite
+    # Використання --host особливо важливе в контексті Docker, оскільки воно дозволяє серверу розробки Vite бути доступним
+    # ззовні контейнера. Без цієї опції, Vite за замовчуванням слухав би тільки на localhost всередині контейнера,
+    # і ви не змогли б отримати доступ до вашого додатку з браузера на вашій хост-машині.
+    command: pnpm run dev -- --host
+    volumes:
+      - ./rctapp:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "5173:5173"
+    environment:
+      - NODE_ENV=development
+    stdin_open: true # Це еквівалентно опції -i в команді docker run
+    tty: true # Це еквівалентно опції -t в команді docker run.
