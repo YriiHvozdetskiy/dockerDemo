@@ -1,5 +1,6 @@
 FROM python:3.11-slim
 
+# створюємо користувача
 RUN useradd -s /bin/sh -u 1234 nonroot
 
 WORKDIR /usr/src/myapp
