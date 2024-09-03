@@ -7,7 +7,7 @@ services:
     # --access-logfile '-' --error-logfile '-'  Ця команда направляє і логи доступу, і логи помилок у stdout
     command: gunicorn app.wsgi:application --bind 0.0.0.0:8000 --access-logfile '-' --error-logfile '-'
     expose:
-      - 8000
+      - 8000 # на якому порті в середині контейнера буде працювати застосунок
     volumes:
       - static_volume:/usr/src/myapp/static
       - media_volume:/usr/src/myapp/media
