@@ -4,7 +4,8 @@ services:
       context: ./myapp
       dockerfile: Dockerfile.prod
     image: web_prod:1.0.0
-    command: gunicorn app.wsgi:application --bind 0.0.0.0:8000 --access-logfile '-'
+    # --access-logfile '-' --error-logfile '-'  Ця команда направляє і логи доступу, і логи помилок у stdout
+    command: gunicorn app.wsgi:application --bind 0.0.0.0:8000 --access-logfile '-' --error-logfile '-'
     expose:
       - 8000
     volumes:
