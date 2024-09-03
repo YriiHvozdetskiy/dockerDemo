@@ -33,7 +33,7 @@ services:
       - static_volume:/app/static
       - media_volume:/app/media
     ports:
-      - 8001:80
+      - 8001:80 # стандартний порт на зовні
     depends_on:
       - web
 
